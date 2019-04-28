@@ -1,26 +1,30 @@
 <template>
-  <button>
-    Hehe
-  </button>
+  <router-link :to="to">
+    <button>{{ title }}</button>
+  </router-link>
 </template>
 
 <script>
 export default {
-  name: 'Button'
+  name: 'Button',
+  props: {
+    title: String,
+    to: ''
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 button {
   color: white;
-  background-color: blue;
+  background-color: #F99704;
   width: 100%;
   padding: 2.5vh 4vh;
   border-radius: 0.5rem;
   transition-duration: 0.2s;
 
   &:active {
-    background-color: rgb(0, 0, 179);
+    background-color: rgb(207, 124, 0);
   }
 }
 </style>

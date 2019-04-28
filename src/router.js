@@ -27,6 +27,11 @@ export default new Router({
       path: '/travel/new',
       name: 'new-travel',
       component: () => import('./views/travel-plan/NewTravel.vue')
+    },
+    {
+      path: '/travel/new/show',
+      name: 'show-travel',
+      component: () => import('./views/travel-plan/ShowPlan.vue')
     }
   ]
 })

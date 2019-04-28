@@ -12,8 +12,11 @@
         :label="`${p.name}`"
       />
     </div>
-    <div>
-      <Button />
+    <div class="travel_next">
+      <Button
+        title="Selanjutnya"
+        :to="{ name: 'show-travel' }"
+      />
     </div>
   </div>
 </template>
@@ -60,5 +63,12 @@ export default {
 <style lang="scss" scoped>
 .option {
   margin-top: 0;
+}
+
+.travel_next {
+  bottom: 0;
+  position: fixed;
+  width: calc(100% - 12vw);
+  margin-bottom: 3vh;
 }
 </style>
