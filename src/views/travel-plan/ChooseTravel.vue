@@ -14,7 +14,16 @@
           :key="card.name"
         >
           <div class="content">
-            <h1 class="name">{{ card.name }}</h1>
+            <p class="distance">{{ card.distance }}</p>
+            <div class="header">
+              <h1 class="name">{{ card.name }}</h1>
+              <div class="check_bg">
+                <v-checkbox
+                  v-model="card.status"
+                  color="white"
+                />
+              </div>
+            </div>
           </div>
           <img :src="card.src" alt="">
         </div>
@@ -23,7 +32,7 @@
     <div class="travel_next">
       <Button
         title="Selanjutnya"
-        :link="{ name: 'show-travel' }"
+        :link="{ name: 'choose-travel' }"
       />
     </div>
   </div>
@@ -34,7 +43,7 @@ import Back from '@/components/utils/Back.vue'
 import Button from '@/components/utils/Button.vue'
 
 export default {
-  name: 'ShowPlan',
+  name: 'ChooseTravel',
   components: {
     Back, Button
   },
@@ -43,11 +52,15 @@ export default {
       cards: [
         {
           name: 'Braga City Street',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg'
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         },
         {
           name: 'Braga City Streets',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg'
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         }
       ]
     }
@@ -61,5 +74,10 @@ export default {
   position: fixed;
   width: calc(100% - 12vw);
   margin-bottom: 3vh;
+}
+
+.content {
+  // display: flex;
+  // flex-direction: row;
 }
 </style>

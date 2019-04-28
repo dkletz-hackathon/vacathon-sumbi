@@ -47,7 +47,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.active)
     this.links.forEach(l => l.active = false)
     this.links[this.active].active = true
   }

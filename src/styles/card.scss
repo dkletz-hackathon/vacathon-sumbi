@@ -10,7 +10,7 @@
   box-shadow: 0px 27px 57px -28px rgba(0,0,0,0.48);
 
   img {
-    filter: brightness(0.8);
+    filter: brightness(0.7);
     width: 100%;
   }
 
@@ -20,10 +20,23 @@
     color: white;
     padding: 1rem;
 
-    >.name {
-      font-size: 3vh;
-      font-weight: 400;
-      margin-top: 8vh;
+    >.header {
+      display: flex;
+      flex-direction: row;
+      margin-top: 5vh;
+
+      >.name {
+        font-size: 3.2vh;
+        font-weight: 400;
+        // margin-top: 5vh;
+      }
+
+      >.check_bg {
+        // background-color: white;
+        >.v-input {
+          margin: 0;
+        }
+      }
     }
   }
 }

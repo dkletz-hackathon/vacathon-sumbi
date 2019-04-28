@@ -34,9 +34,9 @@ export default new Router({
       component: () => import('./views/travel-plan/NewTravel.vue')
     },
     {
-      path: '/travel/new/show',
-      name: 'show-travel',
-      component: () => import('./views/travel-plan/ShowPlan.vue')
+      path: '/travel/new/choose',
+      name: 'choose-travel',
+      component: () => import('./views/travel-plan/ChooseTravel.vue')
     },
     {
       path: '/place/:id',

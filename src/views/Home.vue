@@ -14,15 +14,23 @@
         </div>
       </div>
       <div class="section">
-        <h1 class="main_section justify">Preferensi Vendor</h1>
-        <p class="main_desc justify">Berikut daftar vendor yang cocok buat bisnis Anda.</p>
+        <h1 class="main_section justify">Rekomendasi Tempat</h1>
+        <p class="main_desc justify">Berikut daftar tempat wisata yang cocok buat Anda.</p>
         <div class="subsection">
           <div class="header justify">
-            <h1 class="header_title">Konveksi</h1>
+            <h1 class="header_title">City Street</h1>
             <router-link class="header_link" to="test">Lihat Semua</router-link>
           </div>
-          <div class="contents">
-            <carousel :data="test" />
+          <div class="contents justify">
+            <card
+              v-for="d in data"
+              :key="d.id"
+              :id="d.id.toString()"
+              :name="d.name"
+              :image="d.src"
+              :distance="d.distance"
+            />
+            <!-- <carousel :data="test" /> -->
           </div>
         </div>
       </div>
@@ -34,11 +42,12 @@
 <script>
 import Navbar from '@/components/navbar/Navbar.vue'
 import Carousel from '@/components/carousel/Carousel.vue'
+import Card from '@/components/card/Card.vue'
 
 export default {
   name: 'home',
   components: {
-    Navbar, Carousel
+    Navbar, Carousel, Card
   },
   data () {
     return {
@@ -54,6 +63,22 @@ export default {
         },
         {
           name: 'Hohso'
+        }
+      ],
+      data: [
+        {
+          id: 1,
+          name: 'Braga City Street',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
+        },
+        {
+          id: 2,
+          name: 'Braga City Streets',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         }
       ]
     }
