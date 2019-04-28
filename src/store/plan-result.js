@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const planResultStore = new Vuex.Store({
+const planResultStore = {
   namespaced: true,
   state: {
     /*
@@ -35,12 +35,12 @@ const planResultStore = new Vuex.Store({
     }
   },
   actions: {
-    submitPlan({ commit, state }) {
+    async submitPlan({ commit, state }) {
       commit("setStatus", "loading");
       await axios.post(`${url}/plan`, state.choosenPlaces);
       commit("setStatus", "done");
     }
   }
-});
+};
 
 export default planResultStore;

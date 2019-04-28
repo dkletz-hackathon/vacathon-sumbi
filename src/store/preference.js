@@ -1,7 +1,7 @@
 import axios from "axios";
 import { url } from "../mocks/config";
 
-const PreferenceStore = new Vuex.Store({
+const PreferenceStore = {
   namespaced: true,
   state: {
     /*
@@ -28,12 +28,12 @@ const PreferenceStore = new Vuex.Store({
     }
   },
   actions: {
-    submitPlan({ commit, state }) {
+    async submitPreference({ commit, state }) {
       commit("setStatus", "loading");
       await axios.post(`${url}/preferences`, state.choosen);
       commit("setStatus", "done");
     }
   }
-});
+};
 
 export default PreferenceStore;

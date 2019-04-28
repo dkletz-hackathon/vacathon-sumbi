@@ -1,18 +1,10 @@
-const sessionStore = new Vuex.Store({
+const sessionStore = {
   namespaced: true,
-  state: {
-    token: ""
-  },
   mutations: {
     setToken(state, token) {
-      state.token = token;
+      localStorage.setItem("token", token);
     }
-  },
-  getters: {
-    isAuthenticated: state => {
-      return token !== "";
-    } 
   }
-});
+};
 
 export default sessionStore;
