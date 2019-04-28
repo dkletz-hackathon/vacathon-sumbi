@@ -22,7 +22,7 @@
         <component :is='component' />
       </div>
     </div>
-    <navbar />
+    <navbar active="1" />
   </div>
 </template>
 

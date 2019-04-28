@@ -5,6 +5,8 @@
       :key="link.to"
       :name="link.name"
       :to="link.to"
+      :icon="link.icon"
+      :active="link.active"
     />
   </div>
 </template>
@@ -14,6 +16,9 @@ import NavbarItem from './NavbarItem'
 
 export default {
   name: 'Navbar',
+  props: {
+    active: ''
+  },
   components: {
     NavbarItem
   },
@@ -22,18 +27,29 @@ export default {
       links: [
         {
           name: 'Home',
-          to: 'home'
+          to: 'home',
+          icon: 'home',
+          active: true
         },
         {
           name: 'Travel Plan',
-          to: 'travel'
+          to: 'travel',
+          icon: 'card_travel',
+          active: false
         },
         {
           name: 'Profile',
-          to: 'profile'
+          to: 'profile',
+          icon: 'people',
+          active: false
         }
       ]
     }
+  },
+  mounted () {
+    console.log(this.active)
+    this.links.forEach(l => l.active = false)
+    this.links[this.active].active = true
   }
 }
 </script>

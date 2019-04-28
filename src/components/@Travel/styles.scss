@@ -4,8 +4,17 @@
   padding-top: 3vh;
 }
 
-.warn_empty {
+.warning {
   text-align: center;
-  color: grey;
-  padding-top: 30vh;
+  p {
+    margin: 0.7rem 0;
+    &:last-child {
+      font-weight: 600;
+      color: #F99704;
+    }
+  }
+  .warn_empty {
+    color: grey;
+    padding-top: 25vh;
+  }
 }

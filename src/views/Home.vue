@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <div class="main_content">
-      <h1 class="main_title">Selamat Datang!</h1>
+    <div class="main_content top">
+      <h1 class="main_title justify">Selamat Datang!</h1>
       <div class="section">
-        <h1 class="main_section">Preferensi Vendor</h1>
-        <p class="main_desc">Berikut daftar vendor yang cocok buat bisnis Anda.</p>
+        <h1 class="main_section justify">Preferensi Vendor</h1>
+        <p class="main_desc justify">Berikut daftar vendor yang cocok buat bisnis Anda.</p>
         <div class="subsection">
-          <div class="header">
+          <div class="header justify">
             <h1 class="header_title">Konveksi</h1>
             <router-link class="header_link" to="test">Lihat Semua</router-link>
           </div>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <navbar />
+    <navbar active="0" />
   </div>
 </template>
 
@@ -34,15 +34,6 @@ export default {
       test: [
         {
           name: 'Hehe'
-        },
-        {
-          name: 'Hoho'
-        },
-        {
-          name: 'Hoho'
-        },
-        {
-          name: 'Hoho'
         },
         {
           name: 'Hoho'
