@@ -26,6 +26,11 @@ const router = new Router({
       }
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('./views/Profile.vue')
+    },
+    {
       path: '/travel',
       name: 'travel',
       component: () => import('./views/Travel.vue'),

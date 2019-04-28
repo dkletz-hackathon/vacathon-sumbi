@@ -23,7 +23,7 @@
     <div class="travel_next">
       <Button
         title="Selanjutnya"
-        :to="{ name: 'show-travel' }"
+        :link="{ name: 'show-travel' }"
       />
     </div>
   </div>
@@ -31,13 +31,12 @@
 
 <script>
 import Back from '@/components/utils/Back.vue'
-import Carousel from '@/components/carousel/Carousel.vue'
 import Button from '@/components/utils/Button.vue'
 
 export default {
   name: 'ShowPlan',
   components: {
-    Back, Carousel, Button
+    Back, Button
   },
   data () {
     return {
@@ -47,7 +46,7 @@ export default {
           src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg'
         },
         {
-          name: 'Braga City Street',
+          name: 'Braga City Streets',
           src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg'
         }
       ]

@@ -13,8 +13,8 @@
 export default {
   name: 'Back',
   props: {
-    to: '',
-    white: ''
+    to: String,
+    white: String
   }
 }
 </script>
