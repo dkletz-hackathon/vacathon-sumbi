@@ -5,8 +5,14 @@
     <p class="main_desc">Masukkan detail Travel Plan Anda.</p>
     <div>
 
+      <v-text-field
+        label="Nama Plan"
+        v-model="data.title"
+        prepend-icon="subtitles"
+      ></v-text-field>
+
       <v-menu
-        ref="menu"
+        ref="menu_1"
         v-model="menu_1"
         :close-on-content-click="false"
         :nudge-right="40"
@@ -29,12 +35,12 @@
         <v-date-picker v-model="data.start_date" no-title scrollable>
           <v-spacer></v-spacer>
           <v-btn flat color="primary" @click="menu_1 = false">Cancel</v-btn>
-          <v-btn flat color="primary" @click="$refs.menu.save(data.start_date)">OK</v-btn>
+          <v-btn flat color="primary" @click="$refs.menu_1.save(data.start_date)">OK</v-btn>
         </v-date-picker>
       </v-menu>
 
       <v-menu
-        ref="menu"
+        ref="menu_2"
         v-model="menu_2"
         :close-on-content-click="false"
         :nudge-right="40"
@@ -57,7 +63,7 @@
         <v-date-picker v-model="data.end_date" no-title scrollable>
           <v-spacer></v-spacer>
           <v-btn flat color="primary" @click="menu_2 = false">Cancel</v-btn>
-          <v-btn flat color="primary" @click="$refs.menu.save(data.end_date)">OK</v-btn>
+          <v-btn flat color="primary" @click="$refs.menu_2.save(data.end_date)">OK</v-btn>
         </v-date-picker>
       </v-menu>
 
@@ -85,7 +91,8 @@ export default {
       date: new Date().toISOString().substr(0, 10),
       data: {
         start_date: '',
-        end_date: ''
+        end_date: '',
+        title: ''
       },
       menu_1: false,
       menu_2: false,
