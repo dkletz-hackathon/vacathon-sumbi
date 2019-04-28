@@ -11,7 +11,16 @@
 
 <script>
 export default {
-  name: 'TravelActive'
+  name: 'TravelActive',
+  computed: {
+    plans() {
+      return this.$store.state.travelPlanStore.plans
+    }
+  },
+  mounted() {
+    this.$store.dispatch("travelPlanStore/getPlans")
+            .then(() => { console.log("OK") })
+  }
 }
 </script>
 
