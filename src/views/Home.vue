@@ -1,10 +1,7 @@
 <template>
   <div class="home">
     <div class="main_content top">
-      <h1 class="main_title justify">Selamat Datang!</h1>
-
-      <!-- {{ plans }} -->
-
+      <img class="logo justify" src="../assets/logo.png" alt="">
       <div class="section margintify active_plan">
         <div class="header">
           <v-icon>card_travel</v-icon>
@@ -12,7 +9,7 @@
         </div>
         <div class="separator" />
         <div class="link">
-          <h1 class="name">{{ plans[0].title }}</h1>
+          <h1 class="name">{{ plans[0].title || '' }}</h1>
           <v-icon>navigate_next</v-icon>
         </div>
       </div>

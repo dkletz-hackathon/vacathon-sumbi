@@ -37,7 +37,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("travelPlanStore/getHistories")
-            .then(() => { console.log("OK") })
+      .then(() => { console.log("OK") })
   }
 }
 </script>

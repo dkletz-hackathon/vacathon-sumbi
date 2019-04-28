@@ -7,9 +7,21 @@
       <div class="profile_detail justify">
         <div class="identity">
           <h1 class="name">{{ user.full_name }}</h1>
-          <h1 class="username">{{ user.username }}</h1>
+          <h1 class="username">@{{ user.username }}</h1>
         </div>
         <div class="separator" />
+        <div class="dashboard">
+          <h1 class="title">Shared Plan</h1>
+          <div class="warn" v-if="shared.length == 0">
+            <p>Anda belum membagikan Travel Plan apapun.</p>
+            <p>Mulailah berbagi!</p>
+          </div>
+          <div v-if="shared.length > 0">
+            <card-travel-list
+            
+            />
+          </div>
+        </div>
       </div>
     </div>
     <navbar active="2" />
@@ -18,20 +30,27 @@
 
 <script>
 import Navbar from '@/components/navbar/Navbar.vue'
+import CardTravelList from '@/components/card/CardTravelList.vue'
 
 export default {
   name: 'Profile',
   components: {
-    Navbar
+    Navbar,
+    CardTravelList
   },
   computed: {
     user() {
       return this.$store.state.profileStore.user
+    },
+    shared () {
+      return this.$store.state.travelPlanStore.shared
     }
   },
   mounted() {
     this.$store.dispatch("profileStore/getProfile")
-            .then(() => { console.log("OK") })
+      .then(() => { console.log("OK") })
+    this.$store.dispatch("travelPlanStore/getShared")
+      .then(() => { console.log("OK") })
   }
 }
 </script>
@@ -70,6 +89,19 @@ export default {
       font-weight: 400;
       color: orange;
       text-align: center;
+    }
+  }
+
+  >.dashboard {
+    .title {
+      font-size: 4vh;
+    }
+    .warn {
+      padding-top: 2vh;
+      p {
+        margin: 0;
+        text-align: center;
+      }
     }
   }
 }

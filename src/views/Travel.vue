@@ -19,6 +19,19 @@
         </div>
       </div>
       <div class="travel_content">
+        <router-link to="/travel/new">
+          <v-btn
+            fab
+            medium
+            color="orange"
+            right
+            fixed
+            @click="dialog = !dialog"
+            class="fab"
+          >
+            <v-icon>add</v-icon>
+          </v-btn>
+        </router-link>
         <component :is='component' />
       </div>
     </div>
@@ -71,6 +84,10 @@ $header: 18vh;
 .travel_content {
   padding-top: $header;
   overflow: scroll;
+
+  .fab {
+    margin-top: 58vh;
+  }
 }
 
 .travel_option {
