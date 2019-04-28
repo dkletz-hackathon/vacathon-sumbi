@@ -20,11 +20,7 @@
     </div>
     <div class="travel_next">
       <div>
-        <Button
-          title="Selanjutnya"
-          class="justify"
-          :link="{ name: 'data-travel' }"
-        />
+        <button v-on:click="submitChoosen()">Selanjutnya</button>
       </div>
     </div>
   </div>
@@ -67,13 +63,15 @@ export default {
         }
         this.isChosen[id-1] = false
       }
-      console.log(this.chosen)
-      console.log(this.isChosen)
     },
     isActive (id) {
       console.log(this.chosen)
       console.log(this.isChosen)
       return this.isChosen[id-1]
+    },
+    submitChoosen() {
+      this.$store.dispatch("preference/submitPreference", { choosen: this.chosen }, { root: true })
+      this.$router.push({ name: "data-travel" })
     }
   }
 }
@@ -119,6 +117,19 @@ $header: 30vh;
 
   >div {
     width: calc(100% - 12vw);
+  }
+}
+
+button {
+  color: white;
+  background-color: #F99704;
+  width: 100%;
+  padding: 2.5vh 4vh;
+  border-radius: 0.5rem;
+  transition-duration: 0.2s;
+
+  &:active {
+    background-color: rgb(207, 124, 0);
   }
 }
 </style>
