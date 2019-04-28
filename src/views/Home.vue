@@ -88,20 +88,6 @@ export default {
           src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
           distance: '1.5 km',
           status: false
-        },
-        {
-          id: 3,
-          name: 'Braga City Streetslele',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
-        },
-        {
-          id: 4,
-          name: 'Jalan Sore',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
         }
       ],
       latitude: currentLoc.lat,

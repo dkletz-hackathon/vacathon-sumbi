@@ -3,26 +3,26 @@
     <div class="header">
       <div class="content top justify">
         <back to="/" white="true" />
-        <h1 class="name">Braga City Street</h1>
+        <h1 class="name">{{place.name}}</h1>
         <div class="category">
-          <p>Street City</p>
+          <p>{{place.type.name}}</p>
         </div>
       </div>
-      <img src="https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg" alt="">
+      <img :src="place.thumbnail" alt="">
     </div>
     <div class="detail justify">
       <div class="subdetail">
         <v-icon>location_on</v-icon>
-        <p>Jl. Braga No.99-101, Braga, Sumur Bandung, Kota Bandung</p>
+        <p>{{place.address}}</p>
       </div>
       <div class="subdetail">
         <v-icon>phone</v-icon>
         <p>(022) 4260533</p>
       </div>
       <div class="separator" />
-      <p class="desc">Braga City Walk adalah sebuah kawasan wisata terpadu atau (Mixed Use Development) yang mana di dalam kawasan wisata ini terdapat fasilitas lengkap dan modern.</p>
+      <p class="desc">{{place.description}}</p>
       <div class="maps">
-        <maps />
+        <maps :lat="place.latitude" :long="place.longitude"/>
       </div>
     </div>
   </div>
@@ -36,6 +36,15 @@ export default {
   name: 'PlaceDetail',
   components: {
     Back, Maps
+  },
+  computed: {
+    place() {
+      return this.$store.state.placeDetail.place;
+    }
+  },
+  beforeMount() {
+    const id = this.$route.params.id
+    this.$store.dispatch("placeDetail/getPlace", id, { root: true })
   }
 }
 </script>
