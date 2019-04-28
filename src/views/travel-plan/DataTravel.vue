@@ -70,10 +70,7 @@
     </div>
     <div class="travel_next">
       <div>
-        <Button
-          title="Selanjutnya"
-          :link="{ name: 'choose-travel' }"
-        />
+        <button v-on:click="updatePreference()">Selanjutnya</button>
       </div>
     </div>
   </div>
@@ -122,6 +119,17 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    updatePreference() {
+      console.log("Date", this.data.start_date, this.data.end_date)
+      this.$store.commit("preference/setData", { 
+        title: this.data.title, 
+        startDate: this.data.start_date, 
+        endDate: this.data.end_date 
+      })
+      this.$router.push({ name: "choose-travel" })
+    }
   }
 }
 </script>
@@ -142,6 +150,19 @@ export default {
 
   >div {
     width: calc(100% - 12vw);
+  }
+}
+
+button {
+  color: white;
+  background-color: #F99704;
+  width: 100%;
+  padding: 2.5vh 4vh;
+  border-radius: 0.5rem;
+  transition-duration: 0.2s;
+
+  &:active {
+    background-color: rgb(207, 124, 0);
   }
 }
 </style>

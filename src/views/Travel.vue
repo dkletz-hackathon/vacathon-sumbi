@@ -65,6 +65,7 @@ $header: 18vh;
   width: 100vw;
   height: $header;
   position: fixed;
+  z-index: 9999;
 }
 
 .travel_content {
