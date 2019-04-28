@@ -1,14 +1,12 @@
 <template>
-  <router-link :to="link">
-    <div class="card_prefs">
-      <div class="content">
-        <div class="header">
-          <h1 class="name">{{ name }}</h1>
-        </div>
+  <div class="card_prefs">
+    <div class="content">
+      <div class="header">
+        <h1 class="name">{{ name }}</h1>
       </div>
-      <img :src="image" alt="">
     </div>
-  </router-link>
+    <img :src="image" alt="">
+  </div>
 </template>
 
 <script>

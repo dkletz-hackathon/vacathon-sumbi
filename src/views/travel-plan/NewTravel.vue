@@ -6,13 +6,16 @@
       <p class="main_desc justify">Pilih beberapa preferensi jalan-jalan kamu. Kami akan bantu kamu cari tempat-tempat yang cocok.</p>
     </div>
     <div class="justify travel_option">
-      <card-prefs
+      <div
         v-for="p in prefs"
-        v-model="p.status"
+        @click="choose(p.id)"
         :key="p.id"
-        :name="p.name"
-        :image="p.img"
-      />
+      >
+        <card-prefs
+          :name="p.name"
+          :image="p.img"
+        />
+      </div>
     </div>
     <div class="travel_next">
       <div>
@@ -39,12 +42,19 @@ export default {
   data () {
     return {
       checkbox: '',
-      prefs: []
+      prefs: [],
+      chosen: []
     }
   },
   created () {
     const preferences = require('./../../mocks/preferences.json')
     this.prefs = preferences
+  },
+  methods: {
+    choose (id) {
+      this.chosen.push(id)
+      console.log(this.chosen)
+    }
   }
 }
 </script>

@@ -74,7 +74,7 @@ export default {
   },
   beforeMount() {
     const cards = this.$store.getters["planResult/getPlans"] 
-    updateCards(cards)
+    this.updateCards(cards)
   }
 }
 </script>
