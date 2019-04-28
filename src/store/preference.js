@@ -10,12 +10,11 @@ const PreferenceStore = {
       @name: string
       @img: string(url)
     */
-    preferences: import("../mocks/preferences.json"),
-    /* 
-      Array of interger consisting
-      ids of choosen preferences
-    */
-    choosen: [],
+    preferences: require("../mocks/preferences.json"),
+    places: [],
+    name: "",
+    startDate: "",
+    endDate: "",
     /*
       Status of the views
       @status: "idle" | "loading" | "done" 
@@ -25,19 +24,23 @@ const PreferenceStore = {
   mutations: {
     setStatus(state, status) {
       state.status = status;
+    },
+    setPlaces(state, places) {
+      state.places = places;
     }
   },
   actions: {
     async submitPreference({ commit }, { choosen, name, startDate, endDate }) {
       commit("setStatus", "loading")
       const token = localStorage.getItem("token");
-      const data = await axios.post(`${url}/preferences`, {
-        choosen, name, startDate, endDate
+      const response = await axios.post(`${url}/location/filter`, {
+        preferences: choosen
       }, {
         headers: {
           authorization: `Bearer ${token}`
         }
       })
+      commit("setPlaces", response.data)
       commit("setStatus", "done")
     }
   }
