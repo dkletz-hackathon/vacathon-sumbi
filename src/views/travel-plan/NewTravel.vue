@@ -15,7 +15,7 @@
     <div class="travel_next">
       <Button
         title="Selanjutnya"
-        :to="{ name: 'show-travel' }"
+        :link="{ name: 'show-travel' }"
       />
     </div>
   </div>

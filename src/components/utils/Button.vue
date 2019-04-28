@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="to">
+  <router-link :to="link">
     <button>{{ title }}</button>
   </router-link>
 </template>
@@ -9,7 +9,7 @@ export default {
   name: 'Button',
   props: {
     title: String,
-    to: ''
+    link: Object
   }
 }
 </script>

@@ -19,7 +19,7 @@ export default {
       this.map.setMapTypeId('styled_map');
 
       let self = this
-      let marker = new this.google.maps.Marker({
+      new this.google.maps.Marker({
         position: center,
         map: self.map,
         title: 'Hello World!'
