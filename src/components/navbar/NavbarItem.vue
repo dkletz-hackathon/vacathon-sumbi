@@ -1,6 +1,6 @@
 <template>
   <div class="navbar_item">
-    <router-link :to="to">
+    <router-link :to="{ name: to }">
       <p>{{ name }}</p>
     </router-link>
   </div>

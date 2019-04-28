@@ -49,5 +49,9 @@ export default {
 
   display: flex;
   flex-direction: row;
+
+  -webkit-box-shadow: 0px -11px 57px -28px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px -11px 57px -28px rgba(0,0,0,0.48);
+  box-shadow: 0px -11px 57px -28px rgba(0,0,0,0.48);
 }
 </style>
