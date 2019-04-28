@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Jalan-Jalan",
+    "img": ""
+  },
+  {
+    "id": 2,
+    "name": "Jogging",
+    "img": ""
+  },
+  {
+    "id": 3,
+    "name": "Mendaki",
+    "img": ""
+  },
+  {
+    "id": 4,
+    "name": "Belanja",
+    "img": ""
+  },
+  {
+    "id": 5,
+    "name": "Selfie",
+    "img": ""
+  },
+  {
+    "id": 6,
+    "name": "Adrenalin",
+    "img": ""
+  },
+  {
+    "id": 7,
+    "name": "Kuliner",
+    "img": ""
+  }
+]
