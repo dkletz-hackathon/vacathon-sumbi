@@ -6,8 +6,8 @@
       </div>
       <div class="profile_detail justify">
         <div class="identity">
-          <h1 class="name">Sherin Annisa</h1>
-          <h1 class="username">@sherannisa</h1>
+          <h1 class="name">{{ user.full_name }}</h1>
+          <h1 class="username">{{ user.username }}</h1>
         </div>
         <div class="separator" />
       </div>
@@ -23,6 +23,16 @@ export default {
   name: 'Profile',
   components: {
     Navbar
+  },
+  computed: {
+    user() {
+      console.log(this.$store.state.profileStore)
+      return this.$store.state.profileStore.user
+    }
+  },
+  mounted() {
+    this.$store.dispatch("profileStore/getProfile")
+            .then(() => { console.log("OK") })
   }
 }
 </script>
