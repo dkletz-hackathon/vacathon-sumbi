@@ -2,6 +2,7 @@
   <div class="home">
     <div class="main_content top">
       <h1 class="main_title justify">Selamat Datang!</h1>
+
       <div class="section margintify active_plan">
         <div class="header">
           <v-icon>card_travel</v-icon>
@@ -13,6 +14,23 @@
           <v-icon>navigate_next</v-icon>
         </div>
       </div>
+
+      <div class="section">
+        <h1 class="main_section justify">Rekomendasi Travel Plan</h1>
+        <p class="main_desc justify">Berikut travel plan favorit rekomendasi buat Anda.</p>
+        <div class="contents justify travel_cards">
+          <card-travel
+            v-for="(d, idx) in travel"
+            :key="d.id"
+            :id="d.id.toString()"
+            :name="d.name"
+            :image="d.src"
+            :distance="d.distance"
+            :class="idx%2==0 ? 'right' : 'left'"
+          />
+        </div>
+      </div>
+
       <div class="section">
         <h1 class="main_section justify">Rekomendasi Tempat</h1>
         <p class="main_desc justify">Berikut daftar tempat wisata yang cocok buat Anda.</p>
@@ -37,6 +55,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <navbar active="0" />
   </div>
@@ -46,26 +65,43 @@
 import Navbar from '@/components/navbar/Navbar.vue'
 import Card from '@/components/card/Card.vue'
 import { currentLoc } from "../mocks/config.js"
+import CardTravel from '@/components/card/CardTravel.vue'
 
 export default {
   name: 'home',
   components: {
-    Navbar, Card
+    Navbar, Card, CardTravel
   },
   data () {
     return {
-      test: [
+      travel: [
         {
-          name: 'Hehe'
+          id: 1,
+          name: 'Street Photography',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         },
         {
-          name: 'Hoho'
+          id: 2,
+          name: 'Makan Enak',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         },
         {
-          name: 'Hohoa'
+          id: 3,
+          name: 'Braga City Streetslele',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         },
         {
-          name: 'Hohso'
+          id: 4,
+          name: 'Jalan Sore',
+          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+          distance: '1.5 km',
+          status: false
         }
       ],
       latitude: currentLoc.lat,
@@ -149,6 +185,19 @@ export default {
 <style lang="scss" scoped>
 .home {
   margin-bottom: 15vh;
+}
+
+.travel_cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  >.right {
+    margin-right: 2vw;
+  }
+  >.left {
+    margin-left: 2vw;
+  }
 }
 
 .active_plan {
