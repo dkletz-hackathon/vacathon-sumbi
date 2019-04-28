@@ -1,12 +1,11 @@
 <template>
-  <router-link :to="to">
-    <v-icon
-      class="back"
-      :class="white == 'true' ? 'white-color' : ''"
-    >
-      keyboard_backspace
-    </v-icon>
-  </router-link>
+  <v-icon
+    class="back"
+    @click="$router.go(-1)"
+    :class="white == 'true' ? 'white-color' : ''"
+  >
+    keyboard_backspace
+  </v-icon>
 </template>
 
 <script>
