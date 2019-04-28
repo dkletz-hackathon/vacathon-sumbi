@@ -15,6 +15,7 @@ const PreferenceStore = {
     name: "",
     startDate: "",
     endDate: "",
+    choosen: [],
     /*
       Status of the views
       @status: "idle" | "loading" | "done" 
@@ -23,16 +24,27 @@ const PreferenceStore = {
   },
   mutations: {
     setStatus(state, status) {
-      state.status = status;
+      state.status = status
+      console.log("Status", status)
     },
     setPlaces(state, places) {
       state.places = places;
+    },
+    setData(state, { title, startDate, endDate }) {
+      state.name = title
+      state.startDate = startDate
+      state.endDate = endDate
+    },
+    setChoosen(state, choosen) {
+      state.choosen = choosen
     }
   },
   actions: {
-    async submitPreference({ commit }, { choosen, name, startDate, endDate }) {
+    async submitPreference({ commit, state }, { choosen }) {
       commit("setStatus", "loading")
+      commit("setChoosen", choosen)
       const token = localStorage.getItem("token");
+      console.log("Choosen", choosen);
       const response = await axios.post(`${url}/location/filter`, {
         preferences: choosen
       }, {
@@ -42,6 +54,23 @@ const PreferenceStore = {
       })
       commit("setPlaces", response.data)
       commit("setStatus", "done")
+    },
+    async submitPlan({ commit, state }, choosenPlaces) {
+      commit("setStatus", "loading");
+      const token = localStorage.getItem("token");
+      console.log(state.startDate);
+      console.log(state.endDate);
+      return axios.post(`${url}/plan`, {
+        title: state.name,
+        start_date: state.startDate,
+        end_date: state.endDate,
+        preferences: state.choosen,
+        location_plans: choosenPlaces
+      }, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
     }
   }
 };
