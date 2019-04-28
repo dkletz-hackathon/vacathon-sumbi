@@ -5,7 +5,9 @@ const travelPlanStore = {
   namespaced: true,
   state: {
     plans: [],
-    histories: []
+    histories: [],
+    shared: [],
+    plan: {}
   },
   mutations: {
     setPlans(state, plans) {
@@ -13,6 +15,12 @@ const travelPlanStore = {
     },
     setHistories(state, histories) {
       state.histories = histories
+    },
+    setShared(state, shared) {
+      state.shared = shared
+    },
+    setDetailPlan(state, plan) {
+      state.plan = plan
     }
   },
   actions: {
@@ -33,6 +41,24 @@ const travelPlanStore = {
         }
       });
       commit("setHistories", response.data);
+    },
+    async getShared({ commit }) {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`${url}/plan/shared`, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
+      commit("setShared", response.data);
+    },
+    async getDetailPlan({ commit }, id) {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`${url}/plan/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
+      commit("setDetailPlan", response.data);
     }
   }
 };
