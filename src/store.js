@@ -2,6 +2,7 @@ import PlanResultStore from "./store/plan-result";
 import SessionStore from "./store/session";
 import AuthStore from "./store/auth";
 import PreferenceStore from "./store/preference";
+import HomeStore from "./store/home";
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     planResult: PlanResultStore,
     session: SessionStore,
     auth: AuthStore,
-    preference: PreferenceStore
+    preference: PreferenceStore,
+    home: HomeStore
   }
 });
 

@@ -64,6 +64,15 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    updateCards: function(cards) {
+      this.cards = cards
+    }
+  },
+  beforeMount() {
+    const cards = this.$store.getters["planResult/getPlans"] 
+    updateCards(cards)
   }
 }
 </script>

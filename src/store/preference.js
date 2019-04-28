@@ -28,9 +28,16 @@ const PreferenceStore = {
     }
   },
   actions: {
-    async submitPreference({ commit, state }) {
+    async submitPreference({ commit }, { choosen, name, startDate, endDate }) {
       commit("setStatus", "loading")
-      await axios.post(`${url}/preferences`, state.choosen)
+      const token = localStorage.getItem("token");
+      const data = await axios.post(`${url}/preferences`, {
+        choosen, name, startDate, endDate
+      }, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      })
       commit("setStatus", "done")
     }
   }

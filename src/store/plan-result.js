@@ -31,9 +31,14 @@ const planResultStore = {
     }
   },
   actions: {
-    async submitPlan({ commit, state }) {
+    async submitPlan({ commit }, choosenPlaces) {
       commit("setStatus", "loading");
-      await axios.post(`${url}/plan`, state.choosenPlaces);
+      const token = localStorage.getItem("token");
+      await axios.post(`${url}/plan`, choosenPlaces, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
       commit("setStatus", "done");
     }
   }
