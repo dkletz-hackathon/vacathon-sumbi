@@ -25,8 +25,8 @@ export default {
           to: 'home'
         },
         {
-          name: 'Business',
-          to: 'business'
+          name: 'Travel Plan',
+          to: 'travel'
         },
         {
           name: 'Profile',

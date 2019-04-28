@@ -1,12 +1,30 @@
 @import 'style';
 
+.justify {
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.top {
+  padding-top: 5vh;
+}
+
 .main_content {
-  padding: 8vw;
+  // padding: 5vh 0;
   min-height: 100vh;
 
   .main_title {
     font-weight: 600;
+    font-size: 3.5vh;
     color: rgb(71, 71, 71);
+    margin-bottom: 2vh;
+  }
+
+  .main_header {
+    // position: absolute;
+    background-color: white;
+    width: 100vw;
+    height: 12vh;
   }
 
   .section {
