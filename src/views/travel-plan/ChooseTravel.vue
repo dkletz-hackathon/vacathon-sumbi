@@ -51,30 +51,23 @@ export default {
   },
   data () {
     return {
-      cards: [
-        {
-          name: 'Braga City Street',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
-        },
-        {
-          name: 'Braga City Streets',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
-        }
-      ]
+    }
+  },
+  computed: {
+    cards() {
+      const places = this.$store.state.preference.places
+      console.log(places.length)
+      if (places.length == 0) {
+        console.log("error")
+        this.$router.push({ path: "/travel/new" })
+      }
+      return this.$store.state.preference.places
     }
   },
   methods: {
     updateCards: function(cards) {
       this.cards = cards
     }
-  },
-  beforeMount() {
-    const cards = this.$store.getters["planResult/getPlans"] 
-    this.updateCards(cards)
   }
 }
 </script>
