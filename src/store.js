@@ -5,6 +5,7 @@ import PreferenceStore from "./store/preference";
 import HomeStore from "./store/home";
 import PlaceDetailStore from "./store/place-detail"
 import ProfileStore from "./store/profile"
+import TravelPlanStore from "./store/travel-plan"
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -18,7 +19,8 @@ const store = new Vuex.Store({
     preference: PreferenceStore,
     home: HomeStore,
     placeDetail: PlaceDetailStore,
-    profileStore: ProfileStore
+    profileStore: ProfileStore,
+    travelPlanStore: TravelPlanStore
   }
 });
 

@@ -29,6 +29,7 @@
   }
 
   >.content {
+    overflow: hidden;
     >.header {
       overflow: hidden;
       margin-right: 40vw;
@@ -39,7 +40,25 @@
   }
 }
 
-.card_place, .card_travel, .card_prefs {
+.card_travel_list {
+  width: 100%;
+  margin: 1rem 0;
+  height: 17vh;
+  background-color: grey;
+
+  img {
+    width: 100%;
+  }
+
+  >.content {
+    >.header {
+      overflow: hidden;
+      margin-bottom: 0.5vh;
+    }
+  }
+}
+
+.card_place, .card_travel, .card_prefs, .card_travel_list {
   overflow: hidden;
   border-radius: 0.5rem;
 

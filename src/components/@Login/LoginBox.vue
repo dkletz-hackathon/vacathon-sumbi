@@ -5,6 +5,10 @@
     </div>
     <div class="form-input">
       <input required v-model="username" type="text" class="round" id="username" name="username" placeholder="Username">
+      <v-text-field
+        label="Username"
+        prepend-icon="person"
+      ></v-text-field>
     </div>
     <div class="form-input">
       <input required v-model="password" type="password" class="round" id="password" name="password" placeholder="Password">
