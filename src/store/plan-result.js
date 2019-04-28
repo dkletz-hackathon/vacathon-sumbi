@@ -15,12 +15,7 @@ const planResultStore = {
     */
     plans: [],
     /*
-      Array of choosen places with structure
-        @id: integer
-        @name: string
-        @img: string(url)
-        @lat: latitude(int)
-        @long: longitude(int)
+      Array of integer
     */
     choosenPlaces: [],
     /*
