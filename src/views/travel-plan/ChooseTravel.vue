@@ -1,6 +1,6 @@
 <template>
   <div class="main_content top justify">
-    <back to="/travel/new"/>
+    <back to="/travel/new/detail"/>
     <h1 class="main_title">Rekomendasi tempat</h1>
     <div class="subsection">
       <div class="header">
