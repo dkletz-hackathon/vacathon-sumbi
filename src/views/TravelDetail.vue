@@ -2,24 +2,24 @@
   <div class="plan content">
     <div class="header top justify">
       <back to="/" />
-      <h1 class="name">Plan Senang-Senang</h1>
-      <p>Travel Plan sedang berlangsung</p>
+      <h1 class="name">Plan {{ plan.title }}</h1>
+      <p v-if="isFinished">Travel Plan sedang berlangsung</p>
+      <p v-else>Travel Plan sudah selesai</p>
       <div class="detail">
         <h1 class="title">Tanggal</h1>
-        <p class="content">2018-05-05 s/d 2018-05-09</p>
+        <p class="content">{{ startDate }} s/d {{ endDate }}</p>
       </div>
     </div>
     <div class="justify">
       <div
-        v-for="(d, idx) in data"
+        v-for="(d, idx) in plan.locationPlans"
         :key="d.id"
       >
         <h1 class="count">Tempat ke-{{idx+1}}</h1>
         <card
-          :id="d.id.toString()"
-          :name="d.name"
-          :image="d.src"
-          :distance="d.distance"
+          :id="d.location.id.toString()"
+          :name="d.location.name"
+          :image="d.location.thumbnail"
         />
       </div>
     </div>
@@ -29,6 +29,7 @@
 <script>
 import Back from '@/components/utils/Back.vue'
 import Card from '@/components/card/Card.vue'
+import moment from 'moment-timezone'
 
 export default {
   name: 'TravelDetail',
@@ -61,6 +62,24 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    plan() {
+      return this.$store.state.travelPlanStore.plan
+    },
+    startDate() {
+      return moment(this.plan.start_date).format("YYYY-MM-DD")
+    },
+    endDate() {
+      return moment(this.plan.end_date).format("YYYY-MM-DD")
+    },
+    isFinished() {
+      return new Date() > new Date(this.plan.end_date)
+    }
+  },
+  mounted() {
+    this.$store.dispatch("travelPlanStore/getDetailPlan", this.$route.params.id)
+            .then(() => { console.log("OK") })
   }
 }
 </script>
