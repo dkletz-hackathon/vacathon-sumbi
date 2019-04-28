@@ -8,11 +8,15 @@ import style from './style'
 
 export default {
   name: 'Maps',
+  props: {
+    lat: Number,
+    long: Number
+  },
   async mounted () {
     try {
-      const center = {lat: -6.89060785, lng: 107.61032348};
+      const center = {lat: this.$props.lat, lng: this.$props.long};
       this.google = await mapsInit();
-      this.map = new this.google.maps.Map(document.querySelector('#map'), {zoom: 22, center, disableDefaultUI: true});
+      this.map = new this.google.maps.Map(document.querySelector('#map'), {zoom: 15, center, disableDefaultUI: true});
       const styledMapType = new this.google.maps.StyledMapType(style);
 
       this.map.mapTypes.set('styled_map', styledMapType);

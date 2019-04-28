@@ -3,6 +3,7 @@ import SessionStore from "./store/session";
 import AuthStore from "./store/auth";
 import PreferenceStore from "./store/preference";
 import HomeStore from "./store/home";
+import PlaceDetailStore from "./store/place-detail"
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
     session: SessionStore,
     auth: AuthStore,
     preference: PreferenceStore,
-    home: HomeStore
+    home: HomeStore,
+    placeDetail: PlaceDetailStore
   }
 });
 
