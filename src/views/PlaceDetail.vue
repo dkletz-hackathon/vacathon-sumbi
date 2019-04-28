@@ -21,17 +21,21 @@
       </div>
       <div class="separator" />
       <p class="desc">Braga City Walk adalah sebuah kawasan wisata terpadu atau (Mixed Use Development) yang mana di dalam kawasan wisata ini terdapat fasilitas lengkap dan modern.</p>
+      <div class="maps">
+        <maps />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Back from '@/components/utils/Back.vue'
+import Maps from '@/components/maps/Maps.vue'
 
 export default {
   name: 'PlaceDetail',
   components: {
-    Back
+    Back, Maps
   }
 }
 </script>
@@ -102,6 +106,12 @@ export default {
 
     .desc {
       font-size: 2vh;
+    }
+
+    .maps {
+      margin-top: 5vh;
+      width: calc(100vw - 12vw);
+      height: 50vh;
     }
   }
 }
