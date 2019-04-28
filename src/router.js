@@ -28,7 +28,10 @@ const router = new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('./views/Profile.vue')
+      component: () => import('./views/Profile.vue'),
+      meta: {
+        middleware: auth
+      }
     },
     {
       path: '/travel',
@@ -47,9 +50,17 @@ const router = new Router({
       }
     },
     {
-      path: '/travel/new/show',
-      name: 'show-travel',
-      component: () => import('./views/travel-plan/ShowPlan.vue'),
+      path: '/travel/new/detail',
+      name: 'data-travel',
+      component: () => import('./views/travel-plan/DataTravel.vue'),
+      meta: {
+        middleware: auth
+      }
+    },
+    {
+      path: '/travel/new/choose',
+      name: 'choose-travel',
+      component: () => import('./views/travel-plan/ChooseTravel.vue'),
       meta: {
         middleware: auth
       }
@@ -57,6 +68,13 @@ const router = new Router({
     {
       path: '/place/:id',
       component: () => import('./views/PlaceDetail.vue'),
+      meta: {
+        middleware: auth
+      }
+    },
+    {
+      path: '/plan/:id',
+      component: () => import('./views/TravelDetail.vue'),
       meta: {
         middleware: auth
       }

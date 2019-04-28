@@ -1,5 +1,5 @@
-import axios from "axios";
-import { url } from "../mocks/config";
+import axios from "axios"
+import { url } from "../mocks/config"
 
 const PreferenceStore = {
   namespaced: true,
@@ -29,9 +29,9 @@ const PreferenceStore = {
   },
   actions: {
     async submitPreference({ commit, state }) {
-      commit("setStatus", "loading");
-      await axios.post(`${url}/preferences`, state.choosen);
-      commit("setStatus", "done");
+      commit("setStatus", "loading")
+      await axios.post(`${url}/preferences`, state.choosen)
+      commit("setStatus", "done")
     }
   }
 };

@@ -48,6 +48,7 @@
 }
 
 .subsection {
+  margin-top: 5vh;
   >.header {
     display: flex;
     flex-direction: row;
@@ -58,7 +59,7 @@
     >.header_link {
       flex-basis: 50%;
       padding-top: 0.5vh;
-      padding-left: 10vh;
+      padding-left: 12vh;
       font-weight: 400;
       color: $orange;
     }

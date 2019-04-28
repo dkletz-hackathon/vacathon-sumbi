@@ -1,5 +1,5 @@
-import axios from "axios";
-import { url } from "../mocks/config";
+import axios from "axios"
+import { url } from "../mocks/config"
 
 const authStore = {
   namespaced: true,
@@ -20,7 +20,7 @@ const authStore = {
       if (response.data.message === "OK") {
         commit("session/setToken", response.data.access_token, {root: true})
       }
-      commit("setStatus", "idle");
+      commit("setStatus", "idle")
     }
   },
   getters: {

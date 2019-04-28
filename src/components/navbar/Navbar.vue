@@ -17,7 +17,7 @@ import NavbarItem from './NavbarItem'
 export default {
   name: 'Navbar',
   props: {
-    active: ''
+    active: String
   },
   components: {
     NavbarItem
@@ -47,7 +47,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.active)
     this.links.forEach(l => l.active = false)
     this.links[this.active].active = true
   }
