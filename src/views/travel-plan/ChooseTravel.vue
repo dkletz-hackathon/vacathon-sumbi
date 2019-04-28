@@ -30,10 +30,12 @@
       </div>
     </div>
     <div class="travel_next">
-      <Button
-        title="Selanjutnya"
-        :link="{ name: 'choose-travel' }"
-      />
+      <div>
+        <Button
+          title="Selanjutnya"
+          :link="{ name: 'choose-travel' }"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -72,10 +74,17 @@ export default {
 
 <style lang="scss" scoped>
 .travel_next {
+  background-color: white;
   bottom: 0;
   position: fixed;
-  width: calc(100% - 12vw);
-  margin-bottom: 3vh;
+  width: 100vw;
+  height: 15vh;
+  padding-top: 3.5vh;
+  z-index: 999;
+
+  >div {
+    width: calc(100% - 12vw);
+  }
 }
 
 .content {

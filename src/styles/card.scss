@@ -8,6 +8,17 @@
   }
 }
 
+.card_prefs {
+  width: 100%;
+  margin: 1rem 0;
+  height: 13vh;
+
+  img {
+    width: 100%;
+    bottom: 50vh;
+  }
+}
+
 .card_travel {
   width: 42vw;
   margin: 0.5rem 0;
@@ -28,7 +39,7 @@
   }
 }
 
-.card_place, .card_travel {
+.card_place, .card_travel, .card_prefs {
   overflow: hidden;
   border-radius: 0.5rem;
 
