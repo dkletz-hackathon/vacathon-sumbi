@@ -3,6 +3,8 @@
     <div class="main_content top">
       <h1 class="main_title justify">Selamat Datang!</h1>
 
+      <!-- {{ plans }} -->
+
       <div class="section margintify active_plan">
         <div class="header">
           <v-icon>card_travel</v-icon>
@@ -10,7 +12,7 @@
         </div>
         <div class="separator" />
         <div class="link">
-          <h1 class="name">Plan Senang-Senang</h1>
+          <h1 class="name">{{ plans[0].title }}</h1>
           <v-icon>navigate_next</v-icon>
         </div>
       </div>
@@ -90,54 +92,24 @@ export default {
           status: false
         }
       ],
+      currActive: {
+
+      },
       latitude: currentLoc.lat,
       longitude: currentLoc.long
-      // places: [
-      //   {
-      //     name: 'City Street',
-      //     data: [
-      //       {
-      //         id: 1,
-      //         name: 'Braga City Street',
-      //         src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-      //         distance: '1.5 km',
-      //         status: false
-      //       },
-      //       {
-      //         id: 2,
-      //         name: 'Braga City Streets',
-      //         src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-      //         distance: '1.5 km',
-      //         status: false
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     name: 'Nature',
-      //     data: [
-      //       {
-      //         id: 1,
-      //         name: 'Braga City Street',
-      //         src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-      //         distance: '1.5 km',
-      //         status: false
-      //       },
-      //       {
-      //         id: 2,
-      //         name: 'Braga City Streets',
-      //         src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-      //         distance: '1.5 km',
-      //         status: false
-      //       }
-      //     ]
-      //   }
-      // ]
     }
   },
   computed: {
     places() {
       return this.$store.state.home.locationsCategory
+    },
+    plans () {
+      return this.$store.state.travelPlanStore.plans
     }
+  },
+  mounted() {
+    this.$store.dispatch("travelPlanStore/getPlans")
+      .then(() => { console.log("OK") })
   },
   methods: {
     getDistance(lat1, lon1, lat2, lon2, unit) {
