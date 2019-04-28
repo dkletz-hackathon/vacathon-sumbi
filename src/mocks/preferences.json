@@ -33,5 +33,15 @@
     "id": 7,
     "name": "Kuliner",
     "img": "https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/03/wisata-kuliner-bandung.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Sejarah",
+    "img": "https://historicalbuildingsbdg.files.wordpress.com/2012/04/bandung-bank-of-indonesia.jpg" 
+  },
+  {
+    "id": 9,
+    "name": "Co-Working",
+    "img": "https://glints.id/lowongan/wp-content/uploads/2017/12/Ruangre%CC%81ka-coworking-space-bandung.jpg"
   }
 ]
