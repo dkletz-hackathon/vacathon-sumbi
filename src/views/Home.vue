@@ -19,12 +19,11 @@
         <p class="main_desc justify">Berikut travel plan favorit rekomendasi buat Anda.</p>
         <div class="contents justify travel_cards">
           <card-travel
-            v-for="(d, idx) in travel"
+            v-for="(d, idx) in shared"
             :key="d.id"
             :id="d.id.toString()"
-            :name="d.name"
-            :image="d.src"
-            :distance="d.distance"
+            :name="d.title"
+            v-if="idx < 2"
             :class="idx%2==0 ? 'right' : 'left'"
           />
         </div>
@@ -102,10 +101,15 @@ export default {
     },
     plans () {
       return this.$store.state.travelPlanStore.plans
+    },
+    shared () {
+      return this.$store.state.travelPlanStore.shared
     }
   },
   mounted() {
     this.$store.dispatch("travelPlanStore/getPlans")
+      .then(() => { console.log("OK") })
+    this.$store.dispatch("travelPlanStore/getShared")
       .then(() => { console.log("OK") })
   },
   methods: {

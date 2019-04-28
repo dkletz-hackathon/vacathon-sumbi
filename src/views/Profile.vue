@@ -19,6 +19,7 @@
           <div v-if="shared.length > 0">
             <card-travel-list
               v-for="share in shared"
+              :id="share.id.toString()"
               :key="share.id"
               :name="share.title"
               :startdate="share.start_date"

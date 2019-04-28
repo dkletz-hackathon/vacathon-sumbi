@@ -12,6 +12,7 @@
     <div>
       <card-travel-list
         v-for="plan in plans"
+        :id="plan.id.toString()"
         :key="plan.id"
         :name="plan.title"
         :startdate="plan.start_date"

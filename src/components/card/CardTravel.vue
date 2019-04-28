@@ -2,7 +2,6 @@
   <router-link :to="link">
     <div class="card_travel">
       <div class="content">
-        <p class="distance">{{ distance }}</p>
         <div class="header">
           <h1 class="name">{{ name }}</h1>
         </div>
@@ -16,18 +15,42 @@
 export default {
   name: 'CardTravel',
   props: {
-    distance: String,
     name: String,
-    image: String,
-    id: String
+    id: String,
+    enddate: String,
+    startdate: String
   },
   data () {
     return {
-      link: ''
+      link: '',
+      start_date: '',
+      end_date: '',
+      image: ''
     }
   },
   created () {
-    this.link = `/place/${this.id}`
+    this.link = `/plan/${this.id}`
+
+    const rand = Math.floor(Math.random() * (5 - 1) + 1);
+    switch (rand) {
+      case 1:
+        this.image = 'https://www.pegipegi.com/travel/wp-content/uploads/2017/11/03.jpg'
+        break;
+      case 2:
+        this.image = 'https://statik.tempo.co/data/2018/08/07/id_724304/724304_720.jpg'
+        break;
+      case 3:
+        this.image = 'https://sky-adventure.com/wp-content/uploads/2016/10/18.-Lapangan-Jendral-Cikole-Lembang.jpg'
+        break;
+      case 4:
+        this.image = 'http://traveltodayindonesia.com/wp-content/uploads/2018/05/DSC08181.jpg'
+        break;
+      case 5:
+        this.image = 'https://services.sportourism.id/fileload/artapela-bandung-2jpg-xA9R.jpg?q=75'
+        break;
+      default:
+        break;
+    }
   }
 }
 </script>

@@ -30,7 +30,7 @@ export default {
     }
   },
   created () {
-    this.link = `/place/${this.id}`
+    this.link = `/plan/${this.id}`
     this.start_date = this.startdate.split(' ')[0]
     this.end_date = this.enddate.split(' ')[0]
 

@@ -13,6 +13,7 @@
     <div>
       <card-travel-list
         v-for="history in histories"
+        :id="history.id.toString()"
         :key="history.id"
         :name="history.title"
         :startdate="history.start_date"
