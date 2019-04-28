@@ -11,7 +11,16 @@
 
 <script>
 export default {
-  name: 'TravelHistory'
+  name: 'TravelHistory',
+  computed: {
+    histories() {
+      return this.$store.state.travelPlanStore.histories
+    }
+  },
+  mounted() {
+    this.$store.dispatch("travelPlanStore/getHistories")
+            .then(() => { console.log("OK") })
+  }
 }
 </script>
 

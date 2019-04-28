@@ -26,7 +26,6 @@ export default {
   },
   computed: {
     user() {
-      console.log(this.$store.state.profileStore)
       return this.$store.state.profileStore.user
     }
   },
