@@ -18,7 +18,11 @@
           </div>
           <div v-if="shared.length > 0">
             <card-travel-list
-            
+              v-for="share in shared"
+              :key="share.id"
+              :name="share.title"
+              :startdate="share.start_date"
+              :enddate="share.end_date"
             />
           </div>
         </div>
@@ -71,7 +75,7 @@ export default {
 
 .profile_detail {
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   border-radius: 1.5rem;
   z-index: 999;
