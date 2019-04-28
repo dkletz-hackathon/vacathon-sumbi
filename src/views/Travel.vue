@@ -64,10 +64,11 @@ $header: 18vh;
   background-color: white;
   width: 100vw;
   height: $header;
+  position: fixed;
 }
 
 .travel_content {
-  height: calc(100vh - $header);
+  padding-top: $header;
   overflow: scroll;
 }
 

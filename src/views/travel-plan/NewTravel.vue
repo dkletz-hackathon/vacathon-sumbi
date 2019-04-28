@@ -1,22 +1,30 @@
 <template>
-  <div class="main_content top justify">
-    <back to="/travel"/>
-    <h1 class="main_title">Mau ngapain nih?</h1>
-    <p class="main_desc">Pilih beberapa preferensi jalan-jalan kamu. Kami akan bantu kamu cari tempat-tempat yang cocok.</p>
-    <div>
-      <v-checkbox
+  <div class="main_content">
+    <div class="travel_header top">
+      <back class="justify" to="/travel"/>
+      <h1 class="main_title justify">Mau ngapain nih?</h1>
+      <p class="main_desc justify">Pilih beberapa preferensi jalan-jalan kamu. Kami akan bantu kamu cari tempat-tempat yang cocok.</p>
+    </div>
+    <div class="justify travel_option">
+      <div
         v-for="p in prefs"
-        v-model="p.status"
-        class="option"
+        @click="choose(p.id)"
         :key="p.id"
-        :label="`${p.name}`"
-      />
+      >
+        <card-prefs
+          :name="p.name"
+          :image="p.img"
+        />
+      </div>
     </div>
     <div class="travel_next">
-      <Button
-        title="Selanjutnya"
-        :link="{ name: 'data-travel' }"
-      />
+      <div>
+        <Button
+          title="Selanjutnya"
+          class="justify"
+          :link="{ name: 'data-travel' }"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -24,51 +32,64 @@
 <script>
 import Back from '@/components/utils/Back.vue'
 import Button from '@/components/utils/Button.vue'
+import CardPrefs from '@/components/card/CardPrefs.vue'
 
 export default {
   name: 'NewTravel',
   components: {
-    Back, Button
+    Back, Button, CardPrefs
   },
   data () {
     return {
       checkbox: '',
-      prefs: [
-        {
-          id: 0,
-          name: 'Foto-foto cakep',
-          status: false
-        },
-        {
-          id: 1,
-          name: 'Berenang',
-          status: false
-        },
-        {
-          id: 2,
-          name: 'Makan romantis di restoran',
-          status: false
-        },
-        {
-          id: 3,
-          name: 'Melihat keindahan alam',
-          status: false
-        }
-      ]
+      prefs: [],
+      chosen: []
+    }
+  },
+  created () {
+    const preferences = require('./../../mocks/preferences.json')
+    this.prefs = preferences
+  },
+  methods: {
+    choose (id) {
+      this.chosen.push(id)
+      console.log(this.chosen)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$header: 30vh;
+
 .option {
   margin-top: 0;
 }
 
+.travel_header {
+  position: fixed;
+  height: $header;
+  background-color: white;
+  z-index: 999;
+}
+
+.travel_option {
+  overflow: hidden;
+  margin-top: $header;
+  margin-bottom: 15vh;
+}
+
 .travel_next {
+  background-color: white;
   bottom: 0;
   position: fixed;
-  width: calc(100% - 12vw);
-  margin-bottom: 3vh;
+  width: 100vw;
+  height: 15vh;
+  padding-top: 3.5vh;
+  z-index: 999;
+
+  >div {
+    width: calc(100% - 12vw);
+  }
 }
 </style>
