@@ -9,6 +9,7 @@
       <div
         v-for="p in prefs"
         @click="choose(p.id)"
+        :class="isActive(p.id) ? 'active': ''"
         :key="p.id"
       >
         <card-prefs
@@ -43,17 +44,36 @@ export default {
     return {
       checkbox: '',
       prefs: [],
-      chosen: []
+      chosen: [],
+      isChosen: []
     }
   },
   created () {
     const preferences = require('./../../mocks/preferences.json')
     this.prefs = preferences
+    this.prefs.forEach(f => this.isChosen.push(false))
   },
   methods: {
     choose (id) {
-      this.chosen.push(id)
+      if (!this.isChosen[id-1]) {
+        this.chosen.push(id)
+        this.isChosen[id-1] = true
+      } else {
+        for(let i=0; i<this.isChosen.length; i++) {
+          if (this.chosen[i] == id) {
+            this.chosen.splice(i, 1)
+            break;
+          }
+        }
+        this.isChosen[id-1] = false
+      }
       console.log(this.chosen)
+      console.log(this.isChosen)
+    },
+    isActive (id) {
+      console.log(this.chosen)
+      console.log(this.isChosen)
+      return this.isChosen[id-1]
     }
   }
 }
@@ -77,6 +97,15 @@ $header: 30vh;
   overflow: hidden;
   margin-top: $header;
   margin-bottom: 15vh;
+
+  >.active {
+    >.card_prefs {
+      border: 3px solid rgb(58, 179, 235);
+      >img {
+        filter: brightness(0.5);
+      }
+    }
+  }
 }
 
 .travel_next {
