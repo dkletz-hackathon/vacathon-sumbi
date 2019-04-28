@@ -2,7 +2,7 @@
   <div class="travel_page justify">
     <div class="warning">
       <p class="warn_empty">Belum ada travel plan yang aktif saat ini nih.</p>
-      <router-link to="/">
+      <router-link :to="{ name: 'new-travel' }">
         <p>Yuk jalan-jalan!</p>
       </router-link>
     </div>
