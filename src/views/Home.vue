@@ -16,21 +16,24 @@
       <div class="section">
         <h1 class="main_section justify">Rekomendasi Tempat</h1>
         <p class="main_desc justify">Berikut daftar tempat wisata yang cocok buat Anda.</p>
-        <div class="subsection">
+        <div
+          class="subsection"
+          v-for="place in places"
+          :key="place.name"
+        >
           <div class="header justify">
-            <h1 class="header_title">City Street</h1>
+            <h1 class="header_title">{{ place.name }}</h1>
             <router-link class="header_link" to="test">Lihat Semua</router-link>
           </div>
           <div class="contents justify">
             <card
-              v-for="d in data"
+              v-for="d in place.data"
               :key="d.id"
               :id="d.id.toString()"
               :name="d.name"
               :image="d.src"
               :distance="d.distance"
             />
-            <!-- <carousel :data="test" /> -->
           </div>
         </div>
       </div>
@@ -41,13 +44,12 @@
 
 <script>
 import Navbar from '@/components/navbar/Navbar.vue'
-import Carousel from '@/components/carousel/Carousel.vue'
 import Card from '@/components/card/Card.vue'
 
 export default {
   name: 'home',
   components: {
-    Navbar, Carousel, Card
+    Navbar, Card
   },
   data () {
     return {
@@ -65,20 +67,44 @@ export default {
           name: 'Hohso'
         }
       ],
-      data: [
+      places: [
         {
-          id: 1,
-          name: 'Braga City Street',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
+          name: 'City Street',
+          data: [
+            {
+              id: 1,
+              name: 'Braga City Street',
+              src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+              distance: '1.5 km',
+              status: false
+            },
+            {
+              id: 2,
+              name: 'Braga City Streets',
+              src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+              distance: '1.5 km',
+              status: false
+            }
+          ]
         },
         {
-          id: 2,
-          name: 'Braga City Streets',
-          src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
-          distance: '1.5 km',
-          status: false
+          name: 'Nature',
+          data: [
+            {
+              id: 1,
+              name: 'Braga City Street',
+              src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+              distance: '1.5 km',
+              status: false
+            },
+            {
+              id: 2,
+              name: 'Braga City Streets',
+              src: 'https://fokusjabar.co.id/wp-content/uploads/2019/01/20170617021322.jpg',
+              distance: '1.5 km',
+              status: false
+            }
+          ]
         }
       ]
     }
@@ -87,6 +113,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home {
+  margin-bottom: 15vh;
+}
+
 .active_plan {
   background-color: grey;
   height: 20vh;

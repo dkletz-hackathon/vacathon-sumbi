@@ -17,7 +17,7 @@ import NavbarItem from './NavbarItem'
 export default {
   name: 'Navbar',
   props: {
-    active: ''
+    active: String
   },
   components: {
     NavbarItem

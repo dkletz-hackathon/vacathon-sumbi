@@ -15,7 +15,7 @@
     <div class="travel_next">
       <Button
         title="Selanjutnya"
-        :link="{ name: 'choose-travel' }"
+        :link="{ name: 'data-travel' }"
       />
     </div>
   </div>
