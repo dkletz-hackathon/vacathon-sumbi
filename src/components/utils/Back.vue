@@ -1,6 +1,11 @@
 <template>
   <router-link :to="to">
-    <v-icon class="back">keyboard_backspace</v-icon>
+    <v-icon
+      class="back"
+      :class="white == 'true' ? 'white-color' : ''"
+    >
+      keyboard_backspace
+    </v-icon>
   </router-link>
 </template>
 
@@ -8,7 +13,8 @@
 export default {
   name: 'Back',
   props: {
-    to: ''
+    to: '',
+    white: ''
   }
 }
 </script>
@@ -17,5 +23,9 @@ export default {
 .back {
   margin-bottom: 4vh;
   font-size: 5vh;
+
+  &.white-color {
+    color: white !important;
+  }
 }
 </style>

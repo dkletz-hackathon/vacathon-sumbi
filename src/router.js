@@ -32,6 +32,10 @@ export default new Router({
       path: '/travel/new/show',
       name: 'show-travel',
       component: () => import('./views/travel-plan/ShowPlan.vue')
+    },
+    {
+      path: '/place/:id',
+      component: () => import('./views/PlaceDetail.vue')
     }
   ]
 })
