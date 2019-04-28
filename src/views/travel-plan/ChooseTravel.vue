@@ -71,7 +71,8 @@ export default {
     }
   },
   beforeMount() {
-    const cards = this.$store.getters["planResult/getPlans"] 
+    const cards = this.$store.getters["planResult/getPlans"]
+    /* eslint-disable */
     updateCards(cards)
   }
 }
