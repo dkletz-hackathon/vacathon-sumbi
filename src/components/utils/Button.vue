@@ -1,7 +1,7 @@
 <template>
-  <!-- <router-link :to="link"> -->
-  <button>{{ title }}</button>
-  <!-- </router-link> -->
+  <router-link :to="link">
+    <button>{{ title }}</button>
+  </router-link>
 </template>
 
 <script>
